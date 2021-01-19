@@ -1,0 +1,112 @@
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "cours cours cours cours" "loc loc loc loc" "rem rem rem rem" "cond cond cond cond";
+    padding-top: 5%;
+}
+.carousel {
+    margin-top:-12em;
+ }
+.coursNat{
+    grid-area: cours;
+    background-color: #1b9ecc;
+    color: #025b9b;
+}
+.location{
+    background-color:#ddeaf8;
+    grid-area: loc;
+    color: #1b9ecc;
+}
+.remise{
+    grid-area: rem;
+    background-color: #025b9b;
+    color: #ddeaf8;
+}
+section .fa-swimmer, section .fa-times, section .fa-key, section .fa-chalkboard-teacher{
+    display: none;
+}
+
+
+.coursNat, .location, .remise, .conditions{
+    border-radius:10px;
+    font-size: 1.5em;
+    margin:0.5em 1.5em;
+    padding: 0.5em 1em;
+    text-align:left;
+} 
+.conditions{
+    grid-area: cond;
+    border: 0.5em solid #ddeaf8; 
+    margin-bottom: 4em;
+}
+
+/*STYLES TAB*/
+@media screen and (min-width: 576px) and (max-width:979px){
+    section{
+    grid-template-areas: ". cours cours ." "loc loc rem rem" ". cond cond .";
+       
+    }
+    section p{
+        padding-right: 0.4em;
+        margin-left: 0.4em;
+    }
+    .coursNat, .location, .remise, .conditions{
+        margin: 1em 2em;
+    }
+    section .fa-swimmer, section .fa-times, section .fa-key, section .fa-chalkboard-teacher{
+   display:inline-block;
+    font-size:3em;
+    }
+    section .fa-times{
+    transform: rotate(45deg);
+    color: red;
+    }
+    .coursNat, .location, .remise, .conditions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} 
+    
+}
+/*STYLES GÉ*/
+@media(min-width:980px) {
+    section{
+    grid-template-areas: ". cours cours ." "loc loc rem rem" ". cond cond .";
+    margin: 0 12%;
+        
+    }
+    section p{
+        padding-right: 0.4em;
+        margin-left: 0.4em;
+        font-size: 1.2em;
+    }
+    .coursNat, .location, .remise, .conditions{
+        margin: 1em 2em;
+    }
+    section .fa-swimmer, section .fa-times, section .fa-key, section .fa-chalkboard-teacher{
+   display:inline-block;
+    font-size:4.5em;
+    }
+    section .fa-times{
+    transform: rotate(45deg);
+    color: red;
+    }
+    .coursNat, .location, .remise, .conditions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+} 
+    .conditions{
+        margin-bottom: 2em;
+    }
+    .carousel {
+    margin-top:0em;
+    margin:0 12%;
+ }
+    
+    
+}
+
+

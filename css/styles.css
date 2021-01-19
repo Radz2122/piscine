@@ -1,0 +1,683 @@
+/*Reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 0.9em;
+}
+
+body {
+     font-family: 'Quicksand', sans-serif;
+    max-width: 100vw;
+    min-height: 100vh;
+    /*Conteneur flex en colonne*/
+    display: flex;
+    flex-direction: column;
+    /*Cacher le contenu qui déborde à droite*/
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.global {
+    max-width: 100vw;
+    z-index: 2;
+    /*Poussée vers la gauche pour ne pas voir le menu*/
+    transform: translateX(-100%);
+    /*Effet de transition sur la transformation*/
+    transition: transform 0.5s;
+}
+/*CAROUSEL*/
+.carousel {
+    margin-top:-14.5em;
+ }
+.retourAcc{
+    color: #025b9b;
+    text-decoration: none;
+    width: 100%;
+}
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.carousel-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 2%;
+}
+
+.carousel-control.next {
+    right: 2%;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3 {
+    display: block;
+}
+
+.carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.carousel-bullet {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+
+.carousel-bullet:hover {
+    color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+    color: #428bca;
+}
+
+/*FIN CAROUSEL*/
+#title {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+section {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "horaire horaire . ." ". . activite activite" "contact contact . ." ". . inscription inscription" "nouvelles nouvelles nouvelles nouvelles" ". tProg tProg ." ". tHor tHor ." "footer footer footer footer";
+     padding-top: 5%;
+}
+
+
+.bulles{
+    color: white;
+    background-color: #1b9ecc;
+    margin: 0.5em 0 0 0;
+    height: 5em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bulles i{
+        display: none
+    }
+    
+
+.bH {
+    margin: 0 0 0 2em;
+    grid-area: horaire;
+}
+.bI{
+    grid-area: inscription;
+    margin:0 2em 0 0;
+    
+}
+.bC{
+    margin: 0 0 0 2em;
+    grid-area: contact;
+}
+.bA{
+    grid-area: activite;
+    margin:0 2em 0 0;
+}
+/*debut syles nouvelles*/
+.nouv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: nouvelles;
+    margin: 3em 1em;
+    background-color: #ddeaf8;
+    padding:1.5em;
+    line-height: 1.4em;
+    color:#025b9b;
+}
+.nouv p{
+    margin-top: 1.5em;
+}
+.boutonLire{
+    color: #ff9629;
+    border: 0.15em solid #ff9629;
+    padding: 0.3em;
+    width:35%;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 2em;
+    
+}
+ .fleche{
+  width: 0; 
+  height: 0; 
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  border-left: 0.6em solid #ff9629;
+  display: flex;
+  align-self: center;
+}
+.titre{
+    color:#ff9629;
+    z-index: 2;
+    background-image: url(../img/polygone.png);
+    background-size: 140px;
+    background-repeat: no-repeat;
+    height:3.9em;
+    padding:1.2em 1.7em;
+}
+/*fin styles nouvelles*/
+/*debut style bouton tele*/
+.telechergerProg{
+    grid-area: tProg;
+    background-color: #025b9b;
+    color:#ff9629;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0.57em 2.1em;
+    border-radius: 8px;
+    
+    
+}
+.telechergerHor{
+    grid-area: tHor;
+    text-align: center;
+    margin: 2em 0em 5em 0em;
+    background-color: #1b9ecc;
+    color:#ddeaf8;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    padding: 0.5em 2.1em;
+    border-radius: 8px;
+}
+/*fin style bouton tele*/
+/*debut styles header*/
+ header{
+    background-color:#ddeaf8;
+    padding: 0.6em;
+    color: #025b9b;
+}
+.alignHeader{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+a {
+    color:white;
+    text-decoration: none;
+}
+
+
+.boutonBurger {
+    width: 42px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+}
+.fa-search{
+    font-size:1.5em;
+    color:#ff9629;
+}
+
+.ligne {
+    width: 100%;
+    height: 6px;
+    background-color: #025b9b;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.menu {
+    background-color: #025b9b;
+    text-align: center;
+    width: 100%;
+    /*Propriété comme item flex - ne peut rétrécir*/
+    flex: 1 0 100%;
+    /*Contexte flex en colonne pour ses enfants*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ddeaf8;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    /*Au point de départ on met tous les éléments du menu à gauche*/
+    transform: translateX(-100%);
+    /*Pour les effets de transition*/
+    transition: transform 0.5s cubic-bezier(.42, 0, .49, 1.43);
+}
+
+section {
+     /*Poussée vers la gauche pour ne pas voir le menu*/
+    transform: translateX(0%);
+    /*Effet de transition sur la transformation*/
+    transition: transform 0.5s;
+    z-index: 2;
+}
+
+/*debut styles footer*/
+footer{
+    grid-area: footer;
+    background-color:#ddeaf8;
+    color: #025b9b;
+    text-align: center;
+    z-index: 3;
+}
+footer img{
+    width: 100%;
+    height: 110%;
+    margin-top:-1em;
+    z-index: 3;    
+}
+.iconesMedias{
+    display: flex;
+    justify-content: space-around;
+    padding-top:0.8em;
+    font-size:2em;
+}
+.fa-phone{
+    transform: rotate(110deg);
+}
+.fa-map-marker-alt, .fa-phone{
+    color: #ff9629;
+    margin-right: 0.4em;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    margin: 1.8em 2.5em;
+}
+.info2{
+    margin: 0.8em 0em;
+}
+.info3{
+    margin-top: 1.5em;
+}
+/*fin styles footer*/
+
+
+
+
+
+/* - le menu apparaît ou disparaît selon l'état checked de la case à cocher #chkBoutonBurger et on fait floter le bouton burger
+ - on enleve le checkbox
+*/
+
+#chkBoutonBurger:checked ~ body section  {
+    transform: translateX(100%);
+}
+
+#chkBoutonBurger:checked ~ .global  {
+    transform: translateX(0%);
+    
+}
+
+#chkBoutonBurger {
+    display: none;
+}
+
+/*Effets sur les boutons du menu*/
+
+#chkBoutonBurger:checked ~ .global .menu a {
+    transform: translateX(0%);
+}
+
+#chkBoutonBurger:checked ~ .global .menu a:nth-child(1) {
+    transition-delay: 0.5s;
+}
+
+#chkBoutonBurger:checked ~ .global .menu a:nth-child(2) {
+    transition-delay: 1s;
+}
+
+#chkBoutonBurger:checked ~ .global .menu a:nth-child(3) {
+    transition-delay: 1.5s;
+}
+
+#chkBoutonBurger:checked ~ .global .menu a:nth-child(4) {
+    transition-delay: 2s;
+}
+a:nth-child(5) {
+    transition-delay: 2.5s;
+}
+
+
+/*Les effets de transitions sur les 3 lignes du boutons burger*/
+
+#chkBoutonBurger:checked ~ .alignHeader .boutonBurger > .ligne:first-child {
+    transform: translateY(15px) rotate(45deg);
+}
+
+#chkBoutonBurger:checked ~.alignHeader .boutonBurger > .ligne:nth-child(2) {
+    opacity: 0;
+}
+
+#chkBoutonBurger:checked ~ .alignHeader .boutonBurger > .ligne:last-child {
+    transform: translateY(-15px) rotate(-45deg);
+}
+
+/*Effets d'animation CSS sur le bouton burger lorsque le menu est affiché*/
+@keyframes floteBoutonBurger {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/*Effets de transitions et d'animations CSS sur le menu et ses boutons*/
+/*Pour les tailles plus grandes le menu apparaît de hauteur normale et le bouton burger disparaît*/
+
+/*STYLES TAB*/
+@media screen and (min-width: 576px) and (max-width:979px){
+    
+header{
+font-size: 1.3em;
+padding: 0.9em;
+}
+section {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr ;
+grid-template-areas: "horaire horaire activite activite" "contact contact inscription inscription" "nouvelles nouvelles nouvelles nouvelles" ". tProg tProg ." ". tHor tHor ." "footer footer footer footer";
+}
+.bulles{
+color: white;
+background-color: #1b9ecc;
+margin: 1.5em 0 0 0;
+border-radius: 50%;
+height: 15em;
+width: 15em;
+display: flex;
+align-items: center;
+flex-direction: column;
+padding-top: 0em;
+justify-content:center;
+margin: 2em auto;
+}
+.bulles i{
+display: inherit;
+font-size: 6em;
+padding-top:0.3em;
+}
+ .bulles p{
+     font-size: 1.2em;
+}
+.bH, .bC{
+margin-left: 25%;
+
+}
+.bI, .bA{
+margin-right: 25%;
+}
+.nouv p{
+font-size: 1.3em;
+line-height: 1.5em;
+}
+.titre{
+transform: scale(1.2);
+display: flex;
+align-self: flex-start;
+width: 140px;
+}
+.boutonLire{
+transform: scale(1.06);
+font-size: 1.2em;
+justify-content: space-between;
+padding:0.3em 0.6em;
+width: 25%;
+}
+.nouv .fleche{
+border-top: 0.6em solid transparent;
+border-bottom: 0.6em solid transparent;
+border-left: 0.7em solid #ff9629;
+
+}
+.telechergerHor,.telechergerProg{
+padding: 0.5em 0.3em;  
+} 
+
+footer img{
+/*    width: 100%;*/
+/*stick img backtoback until good for GE and reuse same*/
+}
+.iconesMedias{
+font-size:3em;
+}
+.info{
+display: flex;
+flex-direction: column;
+margin: 1.8em 2.5em;
+font-size: 1.2em;
+}
+    
+}
+/*STYLES GÉ*/
+@media(min-width:980px) {
+    
+.alignHeader{
+padding: 0.1em 1em;;
+justify-content: space-between;
+font-size: 2em;
+}
+.boutonBurger {
+display: none
+}
+
+section {
+grid-template-areas: "horaire horaire activite activite" "contact contact inscription inscription" "nouvelles nouvelles nouvelles nouvelles" "tProg tProg tHor tHor" "footer footer footer footer";
+ margin: 0 10%;
+   background-color: white;
+}
+.bulles{
+color: white;
+background-color: #1b9ecc;
+border-radius: 50%;
+height: 18em;
+width: 18em;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content:center;
+margin: 2em auto;
+}
+.bH, .bC{
+margin-left: 40%
+
+}
+.bI, .bA{
+margin-right: 40%;
+}
+
+.bulles i{
+display: inherit;
+font-size: 8em;
+padding-top:0.15em;
+}
+.bulles p{
+     font-size: 1.5em;
+}
+
+.global {
+/*Placer à sa potition d'origine*/
+transform: translateX(0%);
+}
+.menu {
+/*Propriété comme item flex - ne peut s'étirer en hauteur*/
+flex: 0 0 100%;
+/*Affichage du menu en rangée*/
+flex-direction: row;
+justify-content: space-between;
+}
+
+.menu a {
+/*Remettre les boutons à leur place*/
+transform: translateX(0%);
+border: none;
+/*Propriété comme item flex - peut s'étirer en largeur*/
+flex: 1 0 auto;
+transform: color 0.1s ease-out, font-weight 0.3 ease-out;
+}
+
+/*Effet de transition sur les boutons*/
+.menu a::before {
+content: "";
+position: absolute;
+z-index: -1;
+left: 0%;
+right: 100%;
+bottom: 0%;
+top: 0%;
+background: #ff9629;
+height: 0.15em;
+transition: right 0.3s ease-out;
+}
+
+.menu a:hover::before {
+right: 0%;
+}
+    .nouv{
+        margin: 5% 3%;
+    }
+.nouv p{
+font-size: 1.4em;
+line-height: 1.6em;
+}
+.titre{
+transform: scale(1.3);
+margin-left: 0.5em;
+display: flex;
+align-self: flex-start;
+width: 140px;
+}
+.boutonLire{
+transform: scale(1.06);
+font-size: 1.2em;
+justify-content: space-between;
+align-items: center;
+padding:0.3em 0.6em;
+width: 15%;
+}
+.nouv .fleche{
+border-top: 0.7em solid transparent;
+border-bottom: 0.7em solid transparent;
+border-left: 0.8em solid #ff9629;
+
+}
+
+.telechergerProg{
+padding: 2.5em 1em;
+width: 45%;
+height: 50%;
+display: flex;
+align-items: center;
+font-size: 1.2em;
+margin-left: 15em;
+
+}
+.telechergerHor{
+ width: 45%;
+height: 68%;
+ font-size: 1.2em;
+margin: 0em 5em;
+
+}
+.iconesMedias{
+font-size:3.5em;
+}
+.info{
+display: flex;
+flex-direction: column;
+margin: 2em 3em;
+font-size: 1.4em;
+}
+.carousel {
+    margin-top:0em;
+    margin:0 6%;
+ }
+    
+
+
+
+}

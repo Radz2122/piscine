@@ -1,0 +1,111 @@
+
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "guide guide guide" "nouvD nouvD nouvD" "connecter connecter connecter";
+   
+}
+.carousel{ margin-top:-12em;}
+
+.guideInsc{
+    grid-area: guide;
+}
+.nouvDossier{
+    grid-area: nouvD;
+}
+.seConnecter{
+    grid-area: connecter;
+}
+.guideInsc, .nouvDossier, .seConnecter{
+    background-color:#ddeaf8;
+}
+.titre{
+    font-size: 0.7em;
+    line-height: 1em;
+    height: 7em;
+    background-size: 140px;
+}
+ .guideInsc .titre{
+    padding: 1.7em 0em 0em 3.1em;
+}
+.nouvDossier .titre{
+    padding: 2.2em 0em 0em 2em;
+}
+.seConnecter .titre{
+    padding: 2.2em 0em 0em 3em;
+}
+.seConnecter .oubli{
+    color:#1b9ecc;
+}
+.boutonLire{
+    margin-top: 1em;
+}
+.seConnecter .fa-google{
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+.chiff1, .chiff2, .chiff3{
+    display: flex;
+    flex-direction: row;
+   
+}
+.col1, .col2, .col3{
+     margin-left: 0.5em;
+}
+.seConnecter .fa-swimming-pool{
+    display: none;
+}
+
+/*STYLES TAB*/
+@media screen and (min-width: 576px) and (max-width:979px){
+   .guideInsc,.nouvDossier, .seConnecter{
+        padding-left: 3em;
+    } 
+    .cols{
+    display: flex;
+    flex-direction:row;
+ } 
+.chiff1 p:nth-child(1), .chiff2 p:nth-child(1), .chiff3 p:nth-child(1){
+font-size: 65px;
+margin-top:-0.1%;
+padding: 0 0.2em;
+}
+form{
+padding-top: 0.5em;
+font-size: 1.2em;
+}
+input{
+width: 20em;
+ height:2em;
+ margin:1em 1em 1em 0;
+}
+}
+    
+/*STYLES GÉ*/
+@media(min-width:980px) {
+.guideInsc,.nouvDossier, .seConnecter{
+padding-left: 3em;
+}
+.cols{
+display: flex;
+flex-direction:row;
+} 
+.chiff1 p:nth-child(1), .chiff2 p:nth-child(1), .chiff3 p:nth-child(1){
+font-size: 65px;
+margin-top:-0.1%;
+padding: 0 0.2em;
+}
+form{
+padding-top: 0.8em;
+font-size: 1.5em;
+}
+input{
+width: 20em;
+ height:2.5em;
+ margin:1em 1em 1em 0;
+}
+    .carousel{ margin-top:-0em;
+       margin:0 10%;}
+}
+}
